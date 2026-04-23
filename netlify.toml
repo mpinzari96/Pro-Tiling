@@ -1,0 +1,38 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/tile-installation-sacramento.html"
+  to = "/tile-installation-sacramento"
+  status = 301
+
+[[redirects]]
+  from = "/bathroom-tile-sacramento.html"
+  to = "/bathroom-tile-sacramento"
+  status = 301
+
+[[redirects]]
+  from = "/shower-tile-installation-sacramento.html"
+  to = "/shower-tile-installation-sacramento"
+  status = 301
+
+[[redirects]]
+  from = "/backsplash-installation-sacramento.html"
+  to = "/backsplash-installation-sacramento"
+  status = 301

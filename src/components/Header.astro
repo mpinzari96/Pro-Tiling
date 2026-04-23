@@ -1,0 +1,77 @@
+---
+const { currentPath = "/" } = Astro.props;
+const normalize = (value = "/") => {
+  const clean = value.replace(/\/$/, "") || "/";
+  return clean;
+};
+const isActive = (path) => normalize(path) === normalize(currentPath);
+const isServiceActive = [
+  "/tile-installation-sacramento",
+  "/bathroom-tile-sacramento",
+  "/shower-tile-installation-sacramento",
+  "/backsplash-installation-sacramento",
+].includes(normalize(currentPath));
+---
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a href="/" class="nav__logo" aria-label="Pro Tiling Home">
+        <img src="/logo.png" alt="Pro Tiling Sacramento logo" width="153" height="44" />
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/" class={isActive("/") ? "active" : undefined}>Home</a></li>
+        <li class="nav__dropdown">
+          <button class={`nav__dropdown-toggle ${isServiceActive ? "active" : ""}`} aria-haspopup="true" aria-expanded="false">
+            Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="nav__dropdown-menu" role="list">
+            <li><a href="/tile-installation-sacramento">Tile Installation</a></li>
+            <li><a href="/bathroom-tile-sacramento">Bathroom Tile</a></li>
+            <li><a href="/shower-tile-installation-sacramento">Shower Tile</a></li>
+            <li><a href="/backsplash-installation-sacramento">Kitchen Backsplash</a></li>
+          </ul>
+        </li>
+        <li><a href="/blog" class={isActive("/blog") ? "active" : undefined}>Blog</a></li>
+        <li><a href="/about" class={isActive("/about") ? "active" : undefined}>About</a></li>
+        <li><a href="/contact" class={isActive("/contact") ? "active" : undefined}>Contact</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a href="tel:9165550100" class="btn btn--call">(916) 555-0100</a>
+        <a href="/contact" class="btn btn--primary">Free Quote</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <div class="mobile-accordion">
+      <button
+        class="mobile-accordion__toggle"
+        type="button"
+        aria-expanded={isServiceActive ? "true" : "false"}
+        aria-controls="mobile-services-menu"
+      >
+        <span>Services</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class={`mobile-accordion__content ${isServiceActive ? "open" : ""}`} id="mobile-services-menu">
+        <a href="/tile-installation-sacramento">Tile Installation</a>
+        <a href="/bathroom-tile-sacramento">Bathroom Tile</a>
+        <a href="/shower-tile-installation-sacramento">Shower Tile</a>
+        <a href="/backsplash-installation-sacramento">Kitchen Backsplash</a>
+      </div>
+    </div>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta">
+      <a href="tel:9165550100" class="btn btn--call">Call (916) 555-0100</a>
+      <a href="/contact" class="btn btn--primary">Get a Free Quote</a>
+    </div>
+  </div>
+</header>
