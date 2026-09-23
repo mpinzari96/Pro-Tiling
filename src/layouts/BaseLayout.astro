@@ -15,10 +15,13 @@ interface Props {
   schemaScripts?: string[];
 }
 
+const fallbackDescription =
+  "Sacramento tile contractor for custom tile installation and remodels.";
+
 const {
   pagePath = "/",
   title = "Pro Tiling Sacramento",
-  description = "Sacramento tile contractor for custom tile installation and remodels.",
+  description = fallbackDescription,
   canonical = "",
   ogTitle = "",
   ogDescription = "",
@@ -26,6 +29,8 @@ const {
   ogUrl = "",
   schemaScripts = [],
 } = Astro.props;
+
+const metaDescription = description.trim() || fallbackDescription;
 ---
 <!doctype html>
 <html lang="en">
@@ -33,7 +38,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     {canonical && <link rel="canonical" href={canonical} />}
     {ogTitle && <meta property="og:title" content={ogTitle} />}
     {ogDescription && <meta property="og:description" content={ogDescription} />}
