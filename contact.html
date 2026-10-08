@@ -110,7 +110,7 @@
             <div class="map-placeholder">
               <iframe
                 title="Pro Tiling Sacramento location map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199.83!2d-121.4944!3d38.5816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA!5e0!3m2!1sen!2sus!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85000!2d-121.4944!3d38.5816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA!5e0!3m2!1sen!2sus!4v1234567890"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 aria-label="Map showing Pro Tiling service area in Sacramento, CA">
@@ -122,7 +122,8 @@
             <div class="lead-form contact-form">
               <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:400;margin-bottom:6px;">Request a Free Estimate</h3>
               <p style="font-size:0.875rem;margin-bottom:28px;">We respond within one business day. Usually same day.</p>
-              <form novalidate>
+              <form action="https://formspree.io/f/mljgjwze" method="POST" novalidate>
+                <input type="hidden" name="_subject" value="New estimate request — Pro Tiling" />
                 <div class="form-grid">
                   <div class="form-group">
                     <label for="c-fname">First Name</label>

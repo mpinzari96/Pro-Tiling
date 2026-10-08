@@ -59,10 +59,11 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-// Form validation
+// Formspree Ajax submissions
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mljgjwze';
 const forms = document.querySelectorAll('.lead-form form, .contact-form form');
 forms.forEach(form => {
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     let valid = true;
     form.querySelectorAll('[required]').forEach(field => {
@@ -72,12 +73,28 @@ forms.forEach(form => {
         field.addEventListener('input', () => field.style.borderColor = '', { once: true });
       }
     });
-    if (valid) {
-      const btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Message Sent! We\'ll be in touch shortly.';
-      btn.disabled = true;
-      btn.style.background = '#4a9265';
+    if (!valid) return;
+
+    const btn = form.querySelector('button[type="submit"]');
+    const originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (!res.ok) throw new Error('Formspree error');
       form.reset();
+      btn.textContent = "Message Sent! We'll be in touch shortly.";
+      btn.style.background = '#4a9265';
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Something went wrong — please call (916) 432-0365';
+      btn.style.background = '';
+      setTimeout(() => { btn.textContent = originalLabel; }, 5000);
     }
   });
 });
