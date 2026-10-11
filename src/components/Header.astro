@@ -11,6 +11,9 @@ const isServiceActive = [
   "/shower-tile-installation-sacramento",
   "/backsplash-installation-sacramento",
 ].includes(normalize(currentPath));
+const normalizedPath = normalize(currentPath);
+const isServiceAreasActive =
+  normalizedPath === "/service-areas" || normalizedPath.startsWith("/tile-contractor-");
 ---
 <header class="site-header" role="banner">
   <div class="container">
@@ -31,6 +34,9 @@ const isServiceActive = [
             <li><a href="/shower-tile-installation-sacramento">Shower Tile</a></li>
             <li><a href="/backsplash-installation-sacramento">Kitchen Backsplash</a></li>
           </ul>
+        </li>
+        <li>
+          <a href="/service-areas" class={isServiceAreasActive ? "active" : undefined}>Service Areas</a>
         </li>
         <li><a href="/blog" class={isActive("/blog") ? "active" : undefined}>Blog</a></li>
         <li><a href="/about" class={isActive("/about") ? "active" : undefined}>About</a></li>
@@ -66,6 +72,7 @@ const isServiceActive = [
         <a href="/backsplash-installation-sacramento">Kitchen Backsplash</a>
       </div>
     </div>
+    <a href="/service-areas" class={isServiceAreasActive ? "active" : undefined}>Service Areas</a>
     <a href="/blog">Blog</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
