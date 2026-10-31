@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EstimateForm from "../components/EstimateForm.astro";
 import { cities, type City } from "../data/cities";
+import { SITE_URL, openingHours, openingHoursSpecification } from "../data/site";
 
 export function getStaticPaths() {
   return cities.map((city) => ({
@@ -17,7 +19,7 @@ const { city } = Astro.props;
 const pagePath = city.path;
 const title = `Tile Contractor ${city.name}, CA | Pro Tiling`;
 const description = city.description;
-const canonical = `https://www.protiling.com${city.path}/`;
+const canonical = `${SITE_URL}${city.path}/`;
 const ogTitle = city.ogTitle ?? title;
 const ogDescription = city.ogDescription ?? city.description;
 const ogType = "website";
@@ -26,10 +28,12 @@ const ogUrl = canonical;
 const localBusinessSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.protiling.com/#business",
+  "@id": `${SITE_URL}/#business`,
   name: "Pro Tiling",
   telephone: "(916) 432-0365",
-  url: "https://www.protiling.com/",
+  url: `${SITE_URL}/`,
+  openingHours,
+  openingHoursSpecification,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Sacramento",
@@ -139,6 +143,8 @@ const neighborItems = city.neighbors.map((name) => {
       </div>
     </div>
   </section>
+
+  <EstimateForm />
 
   <section class="cta-band">
     <div class="container">

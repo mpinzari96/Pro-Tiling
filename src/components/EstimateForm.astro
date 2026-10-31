@@ -1,0 +1,60 @@
+<section class="section section--gray" aria-labelledby="quote-heading">
+  <div class="container">
+    <div class="text-center animate-on-scroll" style="margin-bottom:40px;">
+      <span class="section-label">Get Started</span>
+      <h2 id="quote-heading">Request a Free Estimate</h2>
+      <p style="max-width:440px;margin:12px auto 0;">Tell us about your project and we'll get back to you within one business day.</p>
+    </div>
+    <div class="lead-form animate-on-scroll">
+      <form action="https://formspree.io/f/mljgjwze" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New estimate request — Pro Tiling" />
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="first_name" placeholder="John" required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" placeholder="Smith" required autocomplete="family-name" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(916) 432-0365" required autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service...</option>
+              <option>Tile Installation</option>
+              <option>Bathroom Tile Remodel</option>
+              <option>Shower Tile Installation</option>
+              <option>Kitchen Backsplash</option>
+              <option>Tile Flooring</option>
+              <option>Custom Tile Work</option>
+              <option>Not Sure — Need Advice</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="city">Your City</label>
+            <input type="text" id="city" name="city" placeholder="Sacramento, Elk Grove..." autocomplete="address-level2" />
+          </div>
+          <div class="form-group form-group--full">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project — room size, tile style, timeline, anything helpful..." rows="4"></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn--primary">Send My Request</button>
+        </div>
+        <p class="form-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;vertical-align:middle;display:inline;margin-right:4px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          No spam. We'll only use your info to respond to your request.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

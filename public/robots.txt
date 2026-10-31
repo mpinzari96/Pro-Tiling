@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.protiling.com/sitemap-index.xml
+Sitemap: https://goprotiling.com/sitemap-index.xml

@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE_URL } from "../../data/site";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -17,7 +18,7 @@ const { Content } = await render(post);
   pagePath="/blog"
   title={`${post.data.title} | Pro Tiling Blog`}
   description={post.data.description}
-  canonical={`https://www.protiling.com/blog/${post.id.replace(/\.md$/, "")}/`}
+  canonical={`${SITE_URL}/blog/${post.id.replace(/\.md$/, "")}/`}
   ogTitle={post.data.title}
   ogDescription={post.data.description}
 >
