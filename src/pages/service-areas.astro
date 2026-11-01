@@ -1,12 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EstimateForm from "../components/EstimateForm.astro";
 import { cities } from "../data/cities";
+import { SITE_URL, openingHours, openingHoursSpecification } from "../data/site";
 
 const pagePath = "/service-areas";
 const title = "Tile Contractor Service Areas | Sacramento Region | Pro Tiling";
 const description =
   "Pro Tiling serves Sacramento and the greater region — Elk Grove, Roseville, Folsom, Rancho Cordova, Citrus Heights, and more. Request free tile estimates.";
-const canonical = "https://www.protiling.com/service-areas/";
+const canonical = `${SITE_URL}/service-areas/`;
 const ogTitle = title;
 const ogDescription = description;
 const ogType = "website";
@@ -16,10 +18,12 @@ const schemaScripts = [
   JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.protiling.com/#business",
+    "@id": `${SITE_URL}/#business`,
     name: "Pro Tiling",
     telephone: "(916) 432-0365",
-    url: "https://www.protiling.com/",
+    url: `${SITE_URL}/`,
+    openingHours,
+    openingHoursSpecification,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Sacramento",
@@ -134,6 +138,8 @@ const serviceLinks = [
       </ul>
     </div>
   </section>
+
+  <EstimateForm />
 
   <section class="cta-band">
     <div class="container">

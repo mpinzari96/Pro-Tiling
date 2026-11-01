@@ -229,7 +229,7 @@ export const cities: City[] = [
       {
         question: "Do you offer free estimates in Roseville?",
         answer:
-          "Yes. Free Roseville estimates are available Monday through Saturday for scheduling. Most homeowners hear back the same business day.",
+          "Yes. Free Roseville estimates are available Monday through Friday for scheduling. Most homeowners hear back the same business day.",
       },
       {
         question: "How far is Roseville from Sacramento?",
