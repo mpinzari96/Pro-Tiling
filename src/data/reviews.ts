@@ -1,5 +1,4 @@
-export const googleReviewsUrl =
-  "https://www.google.com/search?q=pro+tiling+sacramento#lrd=0x88d2c3091dca9121:0x87513116cc22015c,1,,,,";
+export const googleReviewsUrl = "https://www.google.com/maps?cid=9750628642217656668";
 
 export type Review = {
   name: string;
